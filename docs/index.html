@@ -3,146 +3,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PE Valuation Calculations</title>
-  <!-- Google Fonts for modern typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  
   <style>
-    /* Reset/Global */
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:"Inter",sans-serif;background-color:#fff;color:#333;padding:2rem;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+    .container{max-width:1400px;margin:0 auto}
+    h1{margin-bottom:1rem;font-size:2rem;color:#003d7a;font-weight:600}
+    button.calc,button.excel{
+      background-color:#003d7a;color:#fff;border:none;border-radius:4px;
+      padding:.6rem 1.2rem;margin-right:1rem;font-size:1rem;cursor:pointer;
+      transition:background-color .3s ease,transform .2s ease
     }
-
-    /* Body/Container */
-    body {
-      font-family: "Inter", sans-serif;
-      background-color: #ffffff;
-      color: #333333;
-      padding: 2rem;
-    }
-
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    /* Header */
-    h1 {
-      margin-bottom: 1rem;
-      font-size: 2rem;
-      color: #003d7a;
-      font-weight: 600;
-    }
-
-    /* Buttons */
-    button.calc,
-    button.excel {
-      background-color: #003d7a;
-      color: #ffffff;
-      border: none;
-      border-radius: 4px;
-      padding: 0.6rem 1.2rem;
-      margin-right: 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    button.calc:hover,
-    button.excel:hover {
-      background-color: #002855;
-      transform: translateY(-2px);
-    }
-
-    /* Info text for Committed Capital */
-    .info {
-      margin: 1rem 0;
-      font-size: 1.1rem;
-      color: #555555;
-    }
-
-    /* Table styling */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 2rem;
-      background-color: #ffffff;
-      border-radius: 0;
-      overflow: hidden;
-      box-shadow: none;
-      table-layout: auto;
-      border: 2px solid #003d7a;
-    }
-
-    /* Table cells - default */
-    td {
-      border: 1px solid #003d7a;
-      padding: 0.5rem 0.75rem;
-      text-align: right;
-      font-size: 0.9rem;
-    }
-
-    /* Alternating row backgrounds for readability */
-    tbody tr {
-      background-color: #ffffff;
-    }
-
-    tbody tr:nth-child(even) {
-      background-color: #f8f9fa;
-    }
-
-    /* First column (labels) align left */
-    td:first-child {
-      text-align: left;
-      font-weight: normal;
-      padding-left: 15px;
-      white-space: nowrap;
-      min-width: 200px;
-    }
-
-    /* Header Row (first row) */
-    tbody tr:first-child {
-      background-color: #003d7a;
-      color: #ffffff;
-      font-weight: 600;
-      font-size: 0.85rem;
-    }
-
-    /* Header row cells centered except first */
-    tbody tr:first-child td {
-      text-align: center;
-      padding: 0.6rem 0.5rem;
-      vertical-align: middle;
-    }
-
-    tbody tr:first-child td:first-child {
-      text-align: left;
-      padding-left: 15px;
-    }
+    button.calc:hover,button.excel:hover{background-color:#002855;transform:translateY(-2px)}
+    .info{margin:1rem 0;font-size:1.1rem;color:#555}
+    table{width:100%;border-collapse:collapse;margin-top:2rem;background-color:#fff;
+      border:2px solid #003d7a;table-layout:auto}
+    td{border:1px solid #003d7a;padding:.5rem .75rem;text-align:right;font-size:.9rem}
+    tbody tr:nth-child(even){background-color:#f8f9fa}
+    td:first-child{text-align:left;font-weight:400;padding-left:15px;white-space:nowrap;min-width:200px}
+    tbody tr:first-child{background-color:#003d7a;color:#fff;font-weight:600;font-size:.85rem}
+    tbody tr:first-child td{text-align:center;padding:.6rem .5rem}
+    tbody tr:first-child td:first-child{text-align:left;padding-left:15px}
   </style>
 </head>
 
 <body>
   <div class="container">
     <h1>PE Valuation Calculations</h1>
-    <!-- Buttons to trigger calculations or exports -->
     <button class="calc">Compute Calcs</button>
     <button class="excel">Export to Excel</button>
-
-    <!-- Display note about figures -->
     <div class="info">
       <span style="font-style: italic; color: #666;">(In Millions)</span>
     </div>
-
-    <!-- The table will be inserted here dynamically -->
     <div id="calc-view"></div>
   </div>
-
-  <script src="scripts.js"></script>
 </body>
 </html>
